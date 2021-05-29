@@ -1,4 +1,5 @@
 ***Settings***
+
 Library     OperatingSystem
 Library     SeleniumLibrary 
 Library     String
@@ -15,18 +16,20 @@ Library     indici.py
 Library     inspect.py
 
 ***Variables***
-${File}=            C:\\Users\\laura\\OneDrive\\Desktop\\ROBOT
-${EuroPath}         //div[@class="currency-value"]//*[contains(text(),'1 EURO')][1]
-${InputValoare}     //input[@id="front_valoare_proprietate"]
+
 ${DobandaING}       //*[@id="v_intrest"]
 ${DAE}              //*[@id="v_dae"]
 ${RataLunara}       //*[@id="v_rata_luna_fa"]
-${RataLunara_PC}       //*[@id="v_rata_luna"]
+${RataLunara_PC}    //*[@id="v_rata_luna"]
 ${Ramburs}          //*[@id="v_total_amount"]
-${Ramburs_PC}          //*[@id="v_total_amount_scadentar"]
+${Ramburs_PC}       //*[@id="v_total_amount_scadentar"]
 ${Accept}           //*[@id="onetrust-accept-btn-handler"]
+${InputValoare}     //input[@id="front_valoare_proprietate"]
 
-${AcceptRaiff}           //*[@id="cookiesAccept"]
+${File}=            C:\\Users\\laura\\OneDrive\\Desktop\\ROBOT
+${EuroPath}         //div[@class="currency-value"]//*[contains(text(),'1 EURO')][1] 
+
+${AcceptRaiff}      //*[@id="cookiesAccept"]
 ${ProductRaiff}     //*[@id="product"]
 ${InputAmount}      //*[@data-tool-element-id="requestedAmmount"]
 ${DobandaRaiff}     //*[@id="prefferedInterestRate"]
@@ -37,19 +40,7 @@ ${TotalRaiff}       //*[@id="prefferedTotal"]
 ${ROBORPath}            //*[@id="contentDiv"]//tbody//tr[1]//td[9]
 @{list}
 
-**Test Cases***
-
-Extract Euro From BNR
-    Open Browser    https://www.cursbnr.ro/  Chrome
-    ${Euro}=     Get Text    ${EuroPath}  
-
-    ${FetchRight}=     Fetch from Right    ${Euro}     =${SPACE}
-    ${FetchLeft}=     Fetch from Left     ${FetchRight}     ${SPACE}Lei
-
-    ${ValueToAdd}=   Convert to number  ${FetchLeft}
-    Set Global Variable     ${ValueToAdd}      ${ValueToAdd}     
-    Close Browser
-    # Add value      ${CURDIR}\\EuroEvolutie.xlsx     ${ValueToAdd}
+***Test Cases*** 
 
 Extract ROBOR From BNR
     Open Browser    https://www.bnr.ro/ROBID-ROBOR-5672.aspx  Chrome
@@ -69,14 +60,14 @@ Extract IRCC from BNR
 Extract IMO from Imobiliare
     Open Browser   https://www.imobiliare.ro/indicele-imobiliare-ro/bucuresti    Chrome
     ${IMO}=    Get Text    //div[@class="col-lg-9 col-md-8 col-sm-8 col-xs-12"]//span[@class="pret_unitar"]
-    ${IMO}=   Replace String    ${IMO}      .   ${EMPTY}
+    # ${IMO}=   Replace String    ${IMO}      .   ${EMPTY}
     ${IMO}=    Fetch From Left     ${IMO}   €/mp
     ${IMO}=    Convert to number   ${IMO}
     Set Global Variable       ${IMO}      ${IMO}
     Close Browser
 
 Add Values
-    Add values for indicators   ${File}\\EuroEvolutie.xlsx     ${ValueToAdd}   ${ROBOR}   ${IRCC}      ${IMO}
+    Add values for indicators   ${File}\\EuroEvolutie.xlsx    ${ROBOR}   ${IRCC}      ${IMO}
     Close Browser
 
 ING FIRST
@@ -182,7 +173,7 @@ BT First
     Sleep  2s
     Click element           //*[@class="pushinstruments_button_deny"]
     Click Element           //*[@for="tip2"]
-    Sleep  2s
+    Sleep  3s
     Click Element           //*[@id="valoare_maxima"]
     Enter Value for First
     Sleep   1s
@@ -215,7 +206,7 @@ CEC First PrimaCasa
     CEC Enter Value for PrimaCasa
     Close Browser
 
-Append Values in Excel
+Append Values in Excel for First
 
     Add value for first      ${File}\\EuroEvolutie.xlsx     ${DobandaPA_ING}    ${DAE_PA_ING}     ${PrimaRata_ING}     ${RambursTotal_ING}    ${PC_DobandaPA_ING}    ${PC_DAE_PA_ING}     ${PC_PrimaRata_ING}     ${PC_RambursTotal_ING}      ${DobandaPA}    ${DAE_PA}     ${PrimaRata}     ${RambursTotal}    ${PC_DobandaPA}    ${PC_DAE_PA}     ${PC_PrimaRata}     ${PC_RambursTotal}    ${Dobanda_BRD}   ${DAE_BRD}      ${PrimaRata_BRD}    ${Total_BRD}    ${Dobanda_BCR}      ${DAE_BCR}      ${Rata_BCR}     ${Total_BCR}    ${DobandaPrima_BCR}      ${DAEPrima_BCR}      ${RataPrima_BCR}     ${TotalPrima_BCR}     ${DAE_BT}     ${Rata_BT}   ${Total_BT}   ${Dobanda_CEC}    ${DAE_CEC}    ${Rata_CEC}     ${Total_CEC}    ${DobandaPrima_CEC}   ${DAEPrima_CEC}   ${RataPrima_CEC}   ${TotalPrima_CEC} 
     Close Browser
@@ -357,7 +348,7 @@ CEC Second PrimaCasa
     CEC Enter Value for PrimaCasa
     Close Browser
 
-Append Values in Excel
+Append Values in Excel for Second
 
     Add value for Second      ${File}\\EuroEvolutie.xlsx     ${DobandaPA_ING}    ${DAE_PA_ING}     ${PrimaRata_ING}     ${RambursTotal_ING}    ${PC_DobandaPA_ING}    ${PC_DAE_PA_ING}     ${PC_PrimaRata_ING}     ${PC_RambursTotal_ING}      ${DobandaPA}    ${DAE_PA}     ${PrimaRata}     ${RambursTotal}    ${PC_DobandaPA}    ${PC_DAE_PA}     ${PC_PrimaRata}     ${PC_RambursTotal}    ${Dobanda_BRD}   ${DAE_BRD}      ${PrimaRata_BRD}    ${Total_BRD}    ${Dobanda_BCR}      ${DAE_BCR}      ${Rata_BCR}     ${Total_BCR}    ${DobandaPrima_BCR}      ${DAEPrima_BCR}      ${RataPrima_BCR}     ${TotalPrima_BCR}     ${DAE_BT}     ${Rata_BT}   ${Total_BT}   ${Dobanda_CEC}    ${DAE_CEC}    ${Rata_CEC}     ${Total_CEC}    ${DobandaPrima_CEC}   ${DAEPrima_CEC}   ${RataPrima_CEC}   ${TotalPrima_CEC} 
     Close Browser
@@ -439,7 +430,7 @@ BCR Last
     Click Element       //*[@id="client_s"]//*[@value="1"]
     Sleep   1s
     Click Element       //*[@id="val_credit"]
-    Enter Value for First
+    Enter Value for Last
     Click Element       //*[@id="val_perioada"]
     Enter Period
     Sleep  3s
@@ -452,7 +443,7 @@ BCR Last
     Click Element       //*[@id="currency"]//*[@value="RON"]
     Sleep    2s
     Click Element       //*[@id="val_credit"]
-    Enter Value for First
+    Enter Value for Last
     Click Element       //*[@id="val_perioada"]
     Enter Period
     Sleep  3s
@@ -500,7 +491,7 @@ CEC Last PrimaCasa
     CEC Enter Value for PrimaCasa
     Close Browser
    
-Append Values in Excel
+Append Values in Excel for Last
 
     Add value for last      ${File}\\EuroEvolutie.xlsx     ${DobandaPA_ING}    ${DAE_PA_ING}     ${PrimaRata_ING}     ${RambursTotal_ING}    ${PC_DobandaPA_ING}    ${PC_DAE_PA_ING}     ${PC_PrimaRata_ING}     ${PC_RambursTotal_ING}      ${DobandaPA}    ${DAE_PA}     ${PrimaRata}     ${RambursTotal}    ${PC_DobandaPA}    ${PC_DAE_PA}     ${PC_PrimaRata}     ${PC_RambursTotal}    ${Dobanda_BRD}   ${DAE_BRD}      ${PrimaRata_BRD}    ${Total_BRD}    ${Dobanda_BCR}      ${DAE_BCR}      ${Rata_BCR}     ${Total_BCR}    ${DobandaPrima_BCR}      ${DAEPrima_BCR}      ${RataPrima_BCR}     ${TotalPrima_BCR}     ${DAE_BT}     ${Rata_BT}   ${Total_BT}   ${Dobanda_CEC}    ${DAE_CEC}    ${Rata_CEC}     ${Total_CEC}    ${DobandaPrima_CEC}   ${DAEPrima_CEC}   ${RataPrima_CEC}   ${TotalPrima_CEC} 
     Close Browser
