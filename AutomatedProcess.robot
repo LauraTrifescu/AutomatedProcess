@@ -315,8 +315,8 @@ BT Second
     Sleep  2s
     Click element           //*[@class="pushinstruments_button_deny"]
     Click Element           //*[@for="tip2"]
-    Sleep  2s
-    Click Element           //*[@id="valoare_maxima"]
+    Sleep  3s
+    Run Keyword And Ignore Error    Click Element           //*[@id="valoare_maxima"]
     Enter Value for Second
     Sleep   1s
     BT Enter Value
@@ -458,8 +458,8 @@ BT Last
     Sleep  2s
     Click element           //*[@class="pushinstruments_button_deny"]
     Click Element           //*[@for="tip2"]
-    Sleep  2s
-    Click Element           //*[@id="valoare_maxima"]
+    Sleep  3s
+    Run Keyword And Ignore Error    Click Element           //*[@id="valoare_maxima"]
     Enter Value for Last
     Sleep   1s
     BT Enter Value
