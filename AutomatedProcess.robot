@@ -42,33 +42,33 @@ ${ROBORPath}            //*[@id="contentDiv"]//tbody//tr[1]//td[9]
 
 ***Test Cases*** 
 
-# Extract ROBOR From BNR
-#     Open Browser    https://www.bnr.ro/ROBID-ROBOR-5672.aspx  Chrome
-#     ${ROBOR}=     Get Text    ${ROBORPath}  
-#     ${ROBOR}=   Convert to number  ${ROBOR}
-#     Set Global Variable     ${ROBOR}      ${ROBOR}
-#     Close Browser
+Extract ROBOR From BNR
+    Open Browser    https://www.bnr.ro/ROBID-ROBOR-5672.aspx  Chrome
+    ${ROBOR}=     Get Text    ${ROBORPath}  
+    ${ROBOR}=   Convert to number  ${ROBOR}
+    Set Global Variable     ${ROBOR}      ${ROBOR}
+    Close Browser
 
-# Extract IRCC from BNR
-#     Open Browser   https://www.bnr.ro/Indicele-de-referin%C8%9Ba-pentru-creditele-consumatorilor--19492.aspx    Chrome
-#     ${IRCC}=    Get Text    //*[@id="10days"]//tbody//tr[2]//td[2]
-#     ${IRCC}=   Replace String  ${IRCC}    ,     . 
-#     ${IRCC}=    Convert to number   ${IRCC}
-#     Set Global Variable       ${IRCC}      ${IRCC}
-#     Close Browser
+Extract IRCC from BNR
+    Open Browser   https://www.bnr.ro/Indicele-de-referin%C8%9Ba-pentru-creditele-consumatorilor--19492.aspx    Chrome
+    ${IRCC}=    Get Text    //*[@id="10days"]//tbody//tr[2]//td[2]
+    ${IRCC}=   Replace String  ${IRCC}    ,     . 
+    ${IRCC}=    Convert to number   ${IRCC}
+    Set Global Variable       ${IRCC}      ${IRCC}
+    Close Browser
 
-# Extract IMO from Imobiliare
-#     Open Browser   https://www.imobiliare.ro/indicele-imobiliare-ro/bucuresti    Chrome
-#     ${IMO}=    Get Text    //div[@class="col-lg-9 col-md-8 col-sm-8 col-xs-12"]//span[@class="pret_unitar"]
-#     # ${IMO}=   Replace String    ${IMO}      .   ${EMPTY}
-#     ${IMO}=    Fetch From Left     ${IMO}   €/mp
-#     ${IMO}=    Convert to number   ${IMO}
-#     Set Global Variable       ${IMO}      ${IMO}
-#     Close Browser
+Extract IMO from Imobiliare
+    Open Browser   https://www.imobiliare.ro/indicele-imobiliare-ro/bucuresti    Chrome
+    ${IMO}=    Get Text    //div[@class="col-lg-9 col-md-8 col-sm-8 col-xs-12"]//span[@class="pret_unitar"]
+    # ${IMO}=   Replace String    ${IMO}      .   ${EMPTY}
+    ${IMO}=    Fetch From Left     ${IMO}   €/mp
+    ${IMO}=    Convert to number   ${IMO}
+    Set Global Variable       ${IMO}      ${IMO}
+    Close Browser
 
-# Add Values
-#     Add values for indicators   ${File}\\EuroEvolutie.xlsx    ${ROBOR}   ${IRCC}      ${IMO}
-#     Close Browser
+Add Values
+    Add values for indicators   ${File}\\EuroEvolutie.xlsx    ${ROBOR}   ${IRCC}      ${IMO}
+    Close Browser
 
 ING FIRST
     
@@ -211,290 +211,290 @@ Append Values in Excel for First
     Add value for first      ${File}\\EuroEvolutie.xlsx     ${DobandaPA_ING}    ${DAE_PA_ING}     ${PrimaRata_ING}     ${RambursTotal_ING}    ${PC_DobandaPA_ING}    ${PC_DAE_PA_ING}     ${PC_PrimaRata_ING}     ${PC_RambursTotal_ING}      ${DobandaPA}    ${DAE_PA}     ${PrimaRata}     ${RambursTotal}    ${PC_DobandaPA}    ${PC_DAE_PA}     ${PC_PrimaRata}     ${PC_RambursTotal}    ${Dobanda_BRD}   ${DAE_BRD}      ${PrimaRata_BRD}    ${Total_BRD}    ${Dobanda_BCR}      ${DAE_BCR}      ${Rata_BCR}     ${Total_BCR}    ${DobandaPrima_BCR}      ${DAEPrima_BCR}      ${RataPrima_BCR}     ${TotalPrima_BCR}     ${DAE_BT}     ${Rata_BT}   ${Total_BT}   ${Dobanda_CEC}    ${DAE_CEC}    ${Rata_CEC}     ${Total_CEC}    ${DobandaPrima_CEC}   ${DAEPrima_CEC}   ${RataPrima_CEC}   ${TotalPrima_CEC} 
     Close Browser
 
-# ING SECOND
+ING SECOND
     
-#     Open Browser    https://ing.ro/persoane-fizice/credite/ipotecar     Chrome
-#     Maximize Browser Window
-#     Sleep  3s
-#     Click Element   ${Accept}
-#     Sleep   1s
-#     Click Element   ${InputValoare}
-#     Enter Value for Second
-#     Click Element         //*[@id="fa-un-calcul"]
-#     ING Enter Value for Ipotecar
-#     Close Browser
+    Open Browser    https://ing.ro/persoane-fizice/credite/ipotecar     Chrome
+    Maximize Browser Window
+    Sleep  3s
+    Click Element   ${Accept}
+    Sleep   1s
+    Click Element   ${InputValoare}
+    Enter Value for Second
+    Click Element         //*[@id="fa-un-calcul"]
+    ING Enter Value for Ipotecar
+    Close Browser
 
-#     Open Browser    https://ing.ro/lp/noua-casa     Chrome
-#     Maximize Browser Window
-#     Sleep  3s
-#     Click Element   ${Accept}
-#     Sleep   1s
-#     Click Element   ${InputValoare}
-#     Enter Value For Second
-#     Sleep   1s
-#     Click element   //*[@class="clearfix spgCell"]
-#     ING Enter Value for Prima Casa
-#     Close Browser
+    Open Browser    https://ing.ro/lp/noua-casa     Chrome
+    Maximize Browser Window
+    Sleep  3s
+    Click Element   ${Accept}
+    Sleep   1s
+    Click Element   ${InputValoare}
+    Enter Value For Second
+    Sleep   1s
+    Click element   //*[@class="clearfix spgCell"]
+    ING Enter Value for Prima Casa
+    Close Browser
 
-# Raiffeisen Second
+Raiffeisen Second
     
-#     Open Browser    https://www.raiffeisen.ro/persoane-fizice/instrumente-utile/calculator-rata-credite/     Chrome
-#     Maximize Browser Window
-#     Sleep  3s
-#     Click Element   ${AcceptRaiff}
-#     Sleep   1s
+    Open Browser    https://www.raiffeisen.ro/persoane-fizice/instrumente-utile/calculator-rata-credite/     Chrome
+    Maximize Browser Window
+    Sleep  3s
+    Click Element   ${AcceptRaiff}
+    Sleep   1s
 
-#     Click Element   //*[@id="product"]//*[@label="Imobiliar Casa Ta"]
-#     Sleep   1s
-#     Click Element   ${InputAmount} 
-#     Enter Value for Second
-#     Raiffeisen Enter Value for Ipotecar
+    Click Element   //*[@id="product"]//*[@label="Imobiliar Casa Ta"]
+    Sleep   1s
+    Click Element   ${InputAmount} 
+    Enter Value for Second
+    Raiffeisen Enter Value for Ipotecar
 
-#     Click Element   //*[@id="product"]//*[@label="Imobiliar Prima Casa"]
-#     Sleep   1s
-#     Click Element   ${InputAmount} 
-#     Enter Value for Second
-#     Sleep   1s
-#     Raiffeisen Enter Value for Prima Casa
-#     Close Browser
+    Click Element   //*[@id="product"]//*[@label="Imobiliar Prima Casa"]
+    Sleep   1s
+    Click Element   ${InputAmount} 
+    Enter Value for Second
+    Sleep   1s
+    Raiffeisen Enter Value for Prima Casa
+    Close Browser
 
-# BRD Second
+BRD Second
     
-#     Open Browser   https://www.brd.ro/calculatoare/calculatoare-de-credit/calculator-de-credit?filter=imobiliare     Chrome
-#     Maximize Browser Window
-#     Sleep  3s
-#     Click Element   //*[@class="cookie-consent-btn-action-preview cookie-consent-block"]   
-#     Click Element    //*[@id="type_credit_alias"]//*[@value="lacasamea15"]
-#     Press inspect
-#     Sleep   3s
-#     Click Element   //*[@name="valoare_credit"]
-#     Clear Element Text      //*[@name="valoare_credit"]
-#     Press Keys      //*[@name="valoare_credit"]     440000
-#     Sleep   2s
-#     BRD Enter Value
-#     Close Browser
+    Open Browser   https://www.brd.ro/calculatoare/calculatoare-de-credit/calculator-de-credit?filter=imobiliare     Chrome
+    Maximize Browser Window
+    Sleep  3s
+    Click Element   //*[@class="cookie-consent-btn-action-preview cookie-consent-block"]   
+    Click Element    //*[@id="type_credit_alias"]//*[@value="lacasamea15"]
+    Press inspect
+    Sleep   3s
+    Click Element   //*[@name="valoare_credit"]
+    Clear Element Text      //*[@name="valoare_credit"]
+    Press Keys      //*[@name="valoare_credit"]     440000
+    Sleep   2s
+    BRD Enter Value
+    Close Browser
 
-# BCR Second
-#     Open Browser   https://calculator-rate-credit.bcr.ro/#results_div     Chrome
-#     Maximize Browser Window
-#     Sleep  2s
-#     Click Element       //*[@id="MainContent_tip_credit"]//*[@value="1"]
-#     Sleep   1s
-#     Click Element       //*[@id="tip_produs"]//*[@value="6"]
-#     Click Element       //*[@id="currency"]//*[@value="RON"]
-#     Sleep   1s
-#     Click Element       //*[@id="tip_dobanda"]//*[@value="Fixa pentru 10 ani apoi variabila"]
-#     Click Element       //*[@id="client_s"]//*[@value="1"]
-#     Sleep   1s
-#     Click Element       //*[@id="val_credit"]
-#     Enter Value for Second
-#     Click Element       //*[@id="val_perioada"]
-#     Enter Period
-#     Sleep  3s
-#     BCR Enter Value
+BCR Second
+    Open Browser   https://calculator-rate-credit.bcr.ro/#results_div     Chrome
+    Maximize Browser Window
+    Sleep  2s
+    Click Element       //*[@id="MainContent_tip_credit"]//*[@value="1"]
+    Sleep   1s
+    Click Element       //*[@id="tip_produs"]//*[@value="6"]
+    Click Element       //*[@id="currency"]//*[@value="RON"]
+    Sleep   1s
+    Click Element       //*[@id="tip_dobanda"]//*[@value="Fixa pentru 10 ani apoi variabila"]
+    Click Element       //*[@id="client_s"]//*[@value="1"]
+    Sleep   1s
+    Click Element       //*[@id="val_credit"]
+    Enter Value for Second
+    Click Element       //*[@id="val_perioada"]
+    Enter Period
+    Sleep  3s
+    BCR Enter Value
     
-#     Reload Page
-#     Click Element       //*[@id="MainContent_tip_credit"]//*[@value="1"]
-#     Sleep   1s
-#     Click Element       //*[@id="tip_produs"]//*[@value="12"]
-#     Click Element       //*[@id="currency"]//*[@value="RON"]
-#     Sleep    2s
-#     Click Element       //*[@id="val_credit"]
-#     Enter Value for Second
-#     Click Element       //*[@id="val_perioada"]
-#     Enter Period
-#     Sleep  3s
-#     BCR Enter Value for PrimaCasa
-#     Close Browser
+    Reload Page
+    Click Element       //*[@id="MainContent_tip_credit"]//*[@value="1"]
+    Sleep   1s
+    Click Element       //*[@id="tip_produs"]//*[@value="12"]
+    Click Element       //*[@id="currency"]//*[@value="RON"]
+    Sleep    2s
+    Click Element       //*[@id="val_credit"]
+    Enter Value for Second
+    Click Element       //*[@id="val_perioada"]
+    Enter Period
+    Sleep  3s
+    BCR Enter Value for PrimaCasa
+    Close Browser
 
-# BT Second
-#     Open Browser   https://www.bancatransilvania.ro/simulator-credite/     Chrome
-#     Maximize Browser Window
-#     Sleep  2s
-#     Click element           //*[@class="btn-ac"]
-#     Sleep  2s
-#     Click element           //*[@class="pushinstruments_button_deny"]
-#     Click Element           //*[@for="tip2"]
-#     Sleep  3s
-#     Run Keyword And Ignore Error    Click Element           //*[@id="valoare_maxima"]
-#     Enter Value for Second
-#     Sleep   1s
-#     BT Enter Value
-#     Close Browser
+BT Second
+    Open Browser   https://www.bancatransilvania.ro/simulator-credite/     Chrome
+    Maximize Browser Window
+    Sleep  2s
+    Click element           //*[@class="btn-ac"]
+    Sleep  2s
+    Click element           //*[@class="pushinstruments_button_deny"]
+    Click Element           //*[@for="tip2"]
+    Sleep  3s
+    Run Keyword And Ignore Error    Click Element           //*[@id="valoare_maxima"]
+    Enter Value for Second
+    Sleep   1s
+    BT Enter Value
+    Close Browser
 
-# CEC Second
-#     Open Browser   https://www.cec.ro/credit-ipotecar-imobiliar     Chrome
-#     Maximize Browser Window
-#     Sleep  5s
-#     Scroll element into view    //*[@id="calculator_borrowed_value"]
-#     Drag and Drop by offset       //*[@id="calc_value"]     -168  0
-#     Drag and Drop by offset       //*[@id="calc_range"]     174     0
-#     Sleep   1s
-#     Click element   //*[@id="calculator-calculate-btn"]
-#     Wait Until Element Is Visible   //*[@id="loanVarIterest"]   10s
-#     CEC Enter Value
-#     Close Browser
+CEC Second
+    Open Browser   https://www.cec.ro/credit-ipotecar-imobiliar     Chrome
+    Maximize Browser Window
+    Sleep  5s
+    Scroll element into view    //*[@id="calculator_borrowed_value"]
+    Drag and Drop by offset       //*[@id="calc_value"]     -168  0
+    Drag and Drop by offset       //*[@id="calc_range"]     174     0
+    Sleep   1s
+    Click element   //*[@id="calculator-calculate-btn"]
+    Wait Until Element Is Visible   //*[@id="loanVarIterest"]   10s
+    CEC Enter Value
+    Close Browser
 
-# CEC Second PrimaCasa
-#     Open Browser   https://www.cec.ro/credite-noua-casa        Chrome
-#     Maximize Browser Window
-#     Sleep  5s
-#     Scroll element into view    //*[@id="calculator_borrowed_value"]
-#     Drag and Drop by offset       //*[@id="calc_value"]     134  0
-#     Drag and Drop by offset       //*[@id="calc_range"]     300    0
-#     Sleep   5s
-#     Click element   //*[@id="calculator-calculate-btn"]
-#     Wait Until Element Is Visible   //*[@id="loanVarIterest"]   10s
-#     CEC Enter Value for PrimaCasa
-#     Close Browser
+CEC Second PrimaCasa
+    Open Browser   https://www.cec.ro/credite-noua-casa        Chrome
+    Maximize Browser Window
+    Sleep  5s
+    Scroll element into view    //*[@id="calculator_borrowed_value"]
+    Drag and Drop by offset       //*[@id="calc_value"]     134  0
+    Drag and Drop by offset       //*[@id="calc_range"]     300    0
+    Sleep   5s
+    Click element   //*[@id="calculator-calculate-btn"]
+    Wait Until Element Is Visible   //*[@id="loanVarIterest"]   10s
+    CEC Enter Value for PrimaCasa
+    Close Browser
 
-# Append Values in Excel for Second
+Append Values in Excel for Second
 
-#     Add value for Second      ${File}\\EuroEvolutie.xlsx     ${DobandaPA_ING}    ${DAE_PA_ING}     ${PrimaRata_ING}     ${RambursTotal_ING}    ${PC_DobandaPA_ING}    ${PC_DAE_PA_ING}     ${PC_PrimaRata_ING}     ${PC_RambursTotal_ING}      ${DobandaPA}    ${DAE_PA}     ${PrimaRata}     ${RambursTotal}    ${PC_DobandaPA}    ${PC_DAE_PA}     ${PC_PrimaRata}     ${PC_RambursTotal}    ${Dobanda_BRD}   ${DAE_BRD}      ${PrimaRata_BRD}    ${Total_BRD}    ${Dobanda_BCR}      ${DAE_BCR}      ${Rata_BCR}     ${Total_BCR}    ${DobandaPrima_BCR}      ${DAEPrima_BCR}      ${RataPrima_BCR}     ${TotalPrima_BCR}     ${DAE_BT}     ${Rata_BT}   ${Total_BT}   ${Dobanda_CEC}    ${DAE_CEC}    ${Rata_CEC}     ${Total_CEC}    ${DobandaPrima_CEC}   ${DAEPrima_CEC}   ${RataPrima_CEC}   ${TotalPrima_CEC} 
-#     Close Browser
+    Add value for Second      ${File}\\EuroEvolutie.xlsx     ${DobandaPA_ING}    ${DAE_PA_ING}     ${PrimaRata_ING}     ${RambursTotal_ING}    ${PC_DobandaPA_ING}    ${PC_DAE_PA_ING}     ${PC_PrimaRata_ING}     ${PC_RambursTotal_ING}      ${DobandaPA}    ${DAE_PA}     ${PrimaRata}     ${RambursTotal}    ${PC_DobandaPA}    ${PC_DAE_PA}     ${PC_PrimaRata}     ${PC_RambursTotal}    ${Dobanda_BRD}   ${DAE_BRD}      ${PrimaRata_BRD}    ${Total_BRD}    ${Dobanda_BCR}      ${DAE_BCR}      ${Rata_BCR}     ${Total_BCR}    ${DobandaPrima_BCR}      ${DAEPrima_BCR}      ${RataPrima_BCR}     ${TotalPrima_BCR}     ${DAE_BT}     ${Rata_BT}   ${Total_BT}   ${Dobanda_CEC}    ${DAE_CEC}    ${Rata_CEC}     ${Total_CEC}    ${DobandaPrima_CEC}   ${DAEPrima_CEC}   ${RataPrima_CEC}   ${TotalPrima_CEC} 
+    Close Browser
     
-# ING Last
+ING Last
     
-#     Open Browser    https://ing.ro/persoane-fizice/credite/ipotecar     Chrome
-#     Maximize Browser Window
-#     Sleep  3s
-#     Click Element   ${Accept}
-#     Sleep   1s
-#     Click Element   ${InputValoare}
-#     Enter Value for Last
-#     Click Element         //*[@id="fa-un-calcul"]
-#     ING Enter Value for Ipotecar
-#     Close Browser
+    Open Browser    https://ing.ro/persoane-fizice/credite/ipotecar     Chrome
+    Maximize Browser Window
+    Sleep  3s
+    Click Element   ${Accept}
+    Sleep   1s
+    Click Element   ${InputValoare}
+    Enter Value for Last
+    Click Element         //*[@id="fa-un-calcul"]
+    ING Enter Value for Ipotecar
+    Close Browser
 
-#     Open Browser    https://ing.ro/lp/noua-casa     Chrome
-#     Maximize Browser Window
-#     Sleep  3s
-#     Click Element   ${Accept}
-#     Sleep   1s
-#     Click Element   ${InputValoare}
-#     Enter Value For Last
-#     Sleep   1s
-#     Click element   //*[@class="clearfix spgCell"]
-#     Sleep   1s
-#     ING Enter Value for Prima Casa
-#     Close Browser
+    Open Browser    https://ing.ro/lp/noua-casa     Chrome
+    Maximize Browser Window
+    Sleep  3s
+    Click Element   ${Accept}
+    Sleep   1s
+    Click Element   ${InputValoare}
+    Enter Value For Last
+    Sleep   1s
+    Click element   //*[@class="clearfix spgCell"]
+    Sleep   1s
+    ING Enter Value for Prima Casa
+    Close Browser
 
-# Raiffeisen Last
+Raiffeisen Last
     
-#     Open Browser   https://www.raiffeisen.ro/persoane-fizice/instrumente-utile/calculator-rata-credite/     Chrome
-#     Maximize Browser Window
-#     Sleep  3s
-#     Click Element   ${AcceptRaiff}
-#     Sleep   1s
+    Open Browser   https://www.raiffeisen.ro/persoane-fizice/instrumente-utile/calculator-rata-credite/     Chrome
+    Maximize Browser Window
+    Sleep  3s
+    Click Element   ${AcceptRaiff}
+    Sleep   1s
 
-#     Click Element   //*[@id="product"]//*[@label="Imobiliar Casa Ta"]
-#     Sleep   1s
-#     Click Element   ${InputAmount} 
-#     Enter Value for Last
-#     Raiffeisen Enter Value for Ipotecar
+    Click Element   //*[@id="product"]//*[@label="Imobiliar Casa Ta"]
+    Sleep   1s
+    Click Element   ${InputAmount} 
+    Enter Value for Last
+    Raiffeisen Enter Value for Ipotecar
 
-#     Click Element   //*[@id="product"]//*[@label="Imobiliar Prima Casa"]
-#     Sleep   1s
-#     Click Element   ${InputAmount} 
-#     Enter Value for Last
-#     Sleep   1s
-#     Raiffeisen Enter Value for Prima Casa
-#     Close Browser
+    Click Element   //*[@id="product"]//*[@label="Imobiliar Prima Casa"]
+    Sleep   1s
+    Click Element   ${InputAmount} 
+    Enter Value for Last
+    Sleep   1s
+    Raiffeisen Enter Value for Prima Casa
+    Close Browser
 
-# BRD Last
+BRD Last
     
-#     Open Browser   https://www.brd.ro/calculatoare/calculatoare-de-credit/calculator-de-credit?filter=imobiliare     Chrome
-#     Maximize Browser Window
-#     Sleep  3s
-#     Click Element   //*[@class="cookie-consent-btn-action-preview cookie-consent-block"]   
-#     Click Element    //*[@id="type_credit_alias"]//*[@value="lacasamea15"]
-#     Press inspect
-#     Sleep   3s
-#     Click Element   //*[@name="valoare_credit"]
-#     Clear Element Text      //*[@name="valoare_credit"]
-#     Press Keys      //*[@name="valoare_credit"]     490000
-#     Sleep   2s
-#     BRD Enter Value
-#     Close Browser
+    Open Browser   https://www.brd.ro/calculatoare/calculatoare-de-credit/calculator-de-credit?filter=imobiliare     Chrome
+    Maximize Browser Window
+    Sleep  3s
+    Click Element   //*[@class="cookie-consent-btn-action-preview cookie-consent-block"]   
+    Click Element    //*[@id="type_credit_alias"]//*[@value="lacasamea15"]
+    Press inspect
+    Sleep   3s
+    Click Element   //*[@name="valoare_credit"]
+    Clear Element Text      //*[@name="valoare_credit"]
+    Press Keys      //*[@name="valoare_credit"]     490000
+    Sleep   2s
+    BRD Enter Value
+    Close Browser
 
-# BCR Last
-#     Open Browser   https://calculator-rate-credit.bcr.ro/#results_div     Chrome
-#     Maximize Browser Window
-#     Sleep  2s
-#     Click Element       //*[@id="MainContent_tip_credit"]//*[@value="1"]
-#     Sleep   1s
-#     Click Element       //*[@id="tip_produs"]//*[@value="6"]
-#     Click Element       //*[@id="currency"]//*[@value="RON"]
-#     Sleep   1s
-#     Click Element       //*[@id="tip_dobanda"]//*[@value="Fixa pentru 10 ani apoi variabila"]
-#     Click Element       //*[@id="client_s"]//*[@value="1"]
-#     Sleep   1s
-#     Click Element       //*[@id="val_credit"]
-#     Enter Value for Last
-#     Click Element       //*[@id="val_perioada"]
-#     Enter Period
-#     Sleep  3s
-#     BCR Enter Value
+BCR Last
+    Open Browser   https://calculator-rate-credit.bcr.ro/#results_div     Chrome
+    Maximize Browser Window
+    Sleep  2s
+    Click Element       //*[@id="MainContent_tip_credit"]//*[@value="1"]
+    Sleep   1s
+    Click Element       //*[@id="tip_produs"]//*[@value="6"]
+    Click Element       //*[@id="currency"]//*[@value="RON"]
+    Sleep   1s
+    Click Element       //*[@id="tip_dobanda"]//*[@value="Fixa pentru 10 ani apoi variabila"]
+    Click Element       //*[@id="client_s"]//*[@value="1"]
+    Sleep   1s
+    Click Element       //*[@id="val_credit"]
+    Enter Value for Last
+    Click Element       //*[@id="val_perioada"]
+    Enter Period
+    Sleep  3s
+    BCR Enter Value
     
-#     Reload Page
-#     Click Element       //*[@id="MainContent_tip_credit"]//*[@value="1"]
-#     Sleep   1s
-#     Click Element       //*[@id="tip_produs"]//*[@value="12"]
-#     Click Element       //*[@id="currency"]//*[@value="RON"]
-#     Sleep    2s
-#     Click Element       //*[@id="val_credit"]
-#     Enter Value for Last
-#     Click Element       //*[@id="val_perioada"]
-#     Enter Period
-#     Sleep  3s
-#     BCR Enter Value for PrimaCasa
-#     Close Browser
+    Reload Page
+    Click Element       //*[@id="MainContent_tip_credit"]//*[@value="1"]
+    Sleep   1s
+    Click Element       //*[@id="tip_produs"]//*[@value="12"]
+    Click Element       //*[@id="currency"]//*[@value="RON"]
+    Sleep    2s
+    Click Element       //*[@id="val_credit"]
+    Enter Value for Last
+    Click Element       //*[@id="val_perioada"]
+    Enter Period
+    Sleep  3s
+    BCR Enter Value for PrimaCasa
+    Close Browser
 
-# BT Last
-#     Open Browser   https://www.bancatransilvania.ro/simulator-credite/     Chrome
-#     Maximize Browser Window
-#     Sleep  2s
-#     Click element           //*[@class="btn-ac"]
-#     Sleep  2s
-#     Click element           //*[@class="pushinstruments_button_deny"]
-#     Click Element           //*[@for="tip2"]
-#     Sleep  3s
-#     Run Keyword And Ignore Error    Click Element           //*[@id="valoare_maxima"]
-#     Enter Value for Last
-#     Sleep   1s
-#     BT Enter Value
-#     Close Browser
+BT Last
+    Open Browser   https://www.bancatransilvania.ro/simulator-credite/     Chrome
+    Maximize Browser Window
+    Sleep  2s
+    Click element           //*[@class="btn-ac"]
+    Sleep  2s
+    Click element           //*[@class="pushinstruments_button_deny"]
+    Click Element           //*[@for="tip2"]
+    Sleep  3s
+    Run Keyword And Ignore Error    Click Element           //*[@id="valoare_maxima"]
+    Enter Value for Last
+    Sleep   1s
+    BT Enter Value
+    Close Browser
 
-# CEC Last
-#     Open Browser   https://www.cec.ro/credit-ipotecar-imobiliar     Chrome
-#     Maximize Browser Window
-#     Wait Until Element Is Visible    //*[@id="calculator_borrowed_value"]   10s
-#     Scroll element into view    //*[@id="calculator_borrowed_value"]
-#     Drag and Drop by offset       //*[@id="calc_value"]     -159  0
-#     Drag and Drop by offset       //*[@id="calc_range"]     174     0
-#     Sleep   1s
-#     Click element   //*[@id="calculator-calculate-btn"]
-#     Wait Until Element Is Visible   //*[@id="loanVarIterest"]   10s
-#     CEC Enter Value
-#     Close Browser
+CEC Last
+    Open Browser   https://www.cec.ro/credit-ipotecar-imobiliar     Chrome
+    Maximize Browser Window
+    Wait Until Element Is Visible    //*[@id="calculator_borrowed_value"]   10s
+    Scroll element into view    //*[@id="calculator_borrowed_value"]
+    Drag and Drop by offset       //*[@id="calc_value"]     -159  0
+    Drag and Drop by offset       //*[@id="calc_range"]     174     0
+    Sleep   1s
+    Click element   //*[@id="calculator-calculate-btn"]
+    Wait Until Element Is Visible   //*[@id="loanVarIterest"]   10s
+    CEC Enter Value
+    Close Browser
 
-# CEC Last PrimaCasa
-#     Open Browser   https://www.cec.ro/credite-noua-casa        Chrome
-#     Maximize Browser Window
-#     Sleep  5s
-#     Scroll element into view    //*[@id="calculator_borrowed_value"]
-#     Drag and Drop by offset       //*[@id="calc_value"]     177  0
-#     Drag and Drop by offset       //*[@id="calc_range"]     300    0
-#     Sleep   5s
-#     Click element   //*[@id="calculator-calculate-btn"]
-#     Wait Until Element Is Visible   //*[@id="loanVarIterest"]   10s
-#     CEC Enter Value for PrimaCasa
-#     Close Browser
+CEC Last PrimaCasa
+    Open Browser   https://www.cec.ro/credite-noua-casa        Chrome
+    Maximize Browser Window
+    Sleep  5s
+    Scroll element into view    //*[@id="calculator_borrowed_value"]
+    Drag and Drop by offset       //*[@id="calc_value"]     177  0
+    Drag and Drop by offset       //*[@id="calc_range"]     300    0
+    Sleep   5s
+    Click element   //*[@id="calculator-calculate-btn"]
+    Wait Until Element Is Visible   //*[@id="loanVarIterest"]   10s
+    CEC Enter Value for PrimaCasa
+    Close Browser
    
-# Append Values in Excel for Last
+Append Values in Excel for Last
 
-#     Add value for last      ${File}\\EuroEvolutie.xlsx     ${DobandaPA_ING}    ${DAE_PA_ING}     ${PrimaRata_ING}     ${RambursTotal_ING}    ${PC_DobandaPA_ING}    ${PC_DAE_PA_ING}     ${PC_PrimaRata_ING}     ${PC_RambursTotal_ING}      ${DobandaPA}    ${DAE_PA}     ${PrimaRata}     ${RambursTotal}    ${PC_DobandaPA}    ${PC_DAE_PA}     ${PC_PrimaRata}     ${PC_RambursTotal}    ${Dobanda_BRD}   ${DAE_BRD}      ${PrimaRata_BRD}    ${Total_BRD}    ${Dobanda_BCR}      ${DAE_BCR}      ${Rata_BCR}     ${Total_BCR}    ${DobandaPrima_BCR}      ${DAEPrima_BCR}      ${RataPrima_BCR}     ${TotalPrima_BCR}     ${DAE_BT}     ${Rata_BT}   ${Total_BT}   ${Dobanda_CEC}    ${DAE_CEC}    ${Rata_CEC}     ${Total_CEC}    ${DobandaPrima_CEC}   ${DAEPrima_CEC}   ${RataPrima_CEC}   ${TotalPrima_CEC} 
-#     Close Browser
+    Add value for last      ${File}\\EuroEvolutie.xlsx     ${DobandaPA_ING}    ${DAE_PA_ING}     ${PrimaRata_ING}     ${RambursTotal_ING}    ${PC_DobandaPA_ING}    ${PC_DAE_PA_ING}     ${PC_PrimaRata_ING}     ${PC_RambursTotal_ING}      ${DobandaPA}    ${DAE_PA}     ${PrimaRata}     ${RambursTotal}    ${PC_DobandaPA}    ${PC_DAE_PA}     ${PC_PrimaRata}     ${PC_RambursTotal}    ${Dobanda_BRD}   ${DAE_BRD}      ${PrimaRata_BRD}    ${Total_BRD}    ${Dobanda_BCR}      ${DAE_BCR}      ${Rata_BCR}     ${Total_BCR}    ${DobandaPrima_BCR}      ${DAEPrima_BCR}      ${RataPrima_BCR}     ${TotalPrima_BCR}     ${DAE_BT}     ${Rata_BT}   ${Total_BT}   ${Dobanda_CEC}    ${DAE_CEC}    ${Rata_CEC}     ${Total_CEC}    ${DobandaPrima_CEC}   ${DAEPrima_CEC}   ${RataPrima_CEC}   ${TotalPrima_CEC} 
+    Close Browser
     
 Close
     Close Browser
