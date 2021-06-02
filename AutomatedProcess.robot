@@ -25,6 +25,8 @@ ${Ramburs}          //*[@id="v_total_amount"]
 ${Ramburs_PC}       //*[@id="v_total_amount_scadentar"]
 ${Accept}           //*[@id="onetrust-accept-btn-handler"]
 ${InputValoare}     //input[@id="front_valoare_proprietate"]
+${Calculeaza}       //*[@id="fa-un-calcul"]
+${ClearInput}       //*[@class="clearfix spgCell"]
 
 ${File}=            C:\\Users\\laura\\OneDrive\\Desktop\\ROBOT
 ${EuroPath}         //div[@class="currency-value"]//*[contains(text(),'1 EURO')][1] 
@@ -70,7 +72,7 @@ Add Values
     Add values for indicators   ${File}\\EuroEvolutie.xlsx    ${ROBOR}   ${IRCC}      ${IMO}
     Close Browser
 
-ING FIRST
+ING Extract Data for Ipotecar
     
     Open Browser    https://ing.ro/persoane-fizice/credite/ipotecar     Chrome
     Maximize Browser Window
@@ -79,10 +81,11 @@ ING FIRST
     Sleep   1s
     Click Element   ${InputValoare}
     Enter Value For First
-    Click Element         //*[@id="fa-un-calcul"]
+    Click Element         ${Calculeaza}
     ING Enter Value for Ipotecar
     Close Browser
 
+ING Extract Data for Noua Casa
     Open Browser    https://ing.ro/lp/noua-casa     Chrome
     Maximize Browser Window
     Sleep  3s
@@ -91,7 +94,7 @@ ING FIRST
     Click Element   ${InputValoare}
     Enter Value For First
     Sleep   1s
-    Click element   //*[@class="clearfix spgCell"]
+    Click element   ${ClearInput}
     ING Enter Value for Prima Casa
     Close Browser
 
@@ -173,8 +176,8 @@ BT First
     Sleep  2s
     Click element           //*[@class="pushinstruments_button_deny"]
     Click Element           //*[@for="tip2"]
-    Sleep  3s
-    Click Element           //*[@id="valoare_maxima"]
+    Sleep  4s
+    Run Keyword and Ignore Error     Click Element           //*[@id="valoare_maxima"]
     Enter Value for First
     Sleep   1s
     BT Enter Value
@@ -184,9 +187,10 @@ CEC First
     Open Browser   https://www.cec.ro/credit-ipotecar-imobiliar     Chrome
     Maximize Browser Window
     Sleep  7s
-    Scroll element into view    //*[@id="calculator_borrowed_value"]
-    Drag and Drop by offset       //*[@id="calc_value"]     -177  0
-    Drag and Drop by offset       //*[@id="calc_range"]     174     0
+    Wait Until element is visible   //*[@id="calculator_borrowed_value"]    20s
+    Scroll element into view        //*[@id="calculator_borrowed_value"]
+    Drag and Drop by offset         //*[@id="calc_value"]     -177  0
+    Drag and Drop by offset         //*[@id="calc_range"]     174     0
     Sleep   1s
     Click element   //*[@id="calculator-calculate-btn"]
     Wait Until Element Is Visible   //*[@id="loanVarIterest"]   10s
@@ -197,7 +201,8 @@ CEC First PrimaCasa
     Open Browser   https://www.cec.ro/credite-noua-casa        Chrome
     Maximize Browser Window
     Sleep  5s
-    Scroll element into view    //*[@id="calculator_borrowed_value"]
+    Wait Until element is visible   //*[@id="calculator_borrowed_value"]    20s
+    Scroll element into view        //*[@id="calculator_borrowed_value"]
     Drag and Drop by offset       //*[@id="calc_value"]     91  0
     Drag and Drop by offset       //*[@id="calc_range"]     300    0
     Sleep   5s
@@ -315,7 +320,7 @@ BT Second
     Sleep  2s
     Click element           //*[@class="pushinstruments_button_deny"]
     Click Element           //*[@for="tip2"]
-    Sleep  3s
+    Sleep  4s
     Run Keyword And Ignore Error    Click Element           //*[@id="valoare_maxima"]
     Enter Value for Second
     Sleep   1s
@@ -326,6 +331,7 @@ CEC Second
     Open Browser   https://www.cec.ro/credit-ipotecar-imobiliar     Chrome
     Maximize Browser Window
     Sleep  5s
+    Wait Until element is visible   //*[@id="calculator_borrowed_value"]    20s
     Scroll element into view    //*[@id="calculator_borrowed_value"]
     Drag and Drop by offset       //*[@id="calc_value"]     -168  0
     Drag and Drop by offset       //*[@id="calc_range"]     174     0
@@ -339,6 +345,7 @@ CEC Second PrimaCasa
     Open Browser   https://www.cec.ro/credite-noua-casa        Chrome
     Maximize Browser Window
     Sleep  5s
+    Wait Until element is visible   //*[@id="calculator_borrowed_value"]    20s
     Scroll element into view    //*[@id="calculator_borrowed_value"]
     Drag and Drop by offset       //*[@id="calc_value"]     134  0
     Drag and Drop by offset       //*[@id="calc_range"]     300    0
@@ -458,7 +465,7 @@ BT Last
     Sleep  2s
     Click element           //*[@class="pushinstruments_button_deny"]
     Click Element           //*[@for="tip2"]
-    Sleep  3s
+    Sleep  4s
     Run Keyword And Ignore Error    Click Element           //*[@id="valoare_maxima"]
     Enter Value for Last
     Sleep   1s
@@ -468,7 +475,8 @@ BT Last
 CEC Last
     Open Browser   https://www.cec.ro/credit-ipotecar-imobiliar     Chrome
     Maximize Browser Window
-    Wait Until Element Is Visible    //*[@id="calculator_borrowed_value"]   10s
+    Sleep  5s
+    Wait Until Element Is Visible    //*[@id="calculator_borrowed_value"]   20s
     Scroll element into view    //*[@id="calculator_borrowed_value"]
     Drag and Drop by offset       //*[@id="calc_value"]     -159  0
     Drag and Drop by offset       //*[@id="calc_range"]     174     0
@@ -482,6 +490,7 @@ CEC Last PrimaCasa
     Open Browser   https://www.cec.ro/credite-noua-casa        Chrome
     Maximize Browser Window
     Sleep  5s
+    Wait Until element is visible   //*[@id="calculator_borrowed_value"]    20s
     Scroll element into view    //*[@id="calculator_borrowed_value"]
     Drag and Drop by offset       //*[@id="calc_value"]     177  0
     Drag and Drop by offset       //*[@id="calc_range"]     300    0
