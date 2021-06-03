@@ -42,7 +42,7 @@ ${TotalRaiff}       //*[@id="prefferedTotal"]
 ${ROBORPath}            //*[@id="contentDiv"]//tbody//tr[1]//td[9]
 @{list}
 
-***Test Cases*** 
+***Tasks*** 
 
 Extract ROBOR From BNR
     Open Browser    https://www.bnr.ro/ROBID-ROBOR-5672.aspx  Chrome

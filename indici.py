@@ -27,5 +27,4 @@ def add_values_for_indicators(file_name, value1, value2, value3):
             ws.append(row)
 
         tb.ref = f"{get_column_letter(coord[0])}{coord[1]}:{get_column_letter(coord[2])}{coord[3]}"
-        # ws.append([today,value1,value2, value3, value4])
         wb.save(file_name)
