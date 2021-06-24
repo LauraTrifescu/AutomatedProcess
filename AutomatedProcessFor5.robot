@@ -42,7 +42,7 @@ ${TotalRaiff}       //*[@id="prefferedTotal"]
 ${ROBORPath}            //*[@id="contentDiv"]//tbody//tr[1]//td[9]
 @{list}
 
-***Test Cases*** 
+***Tasks*** 
 
 Extract ROBOR From BNR
     Open Browser    https://www.bnr.ro/ROBID-ROBOR-5672.aspx  Chrome
@@ -103,8 +103,8 @@ Raiffeisen First
     Open Browser    https://www.raiffeisen.ro/persoane-fizice/instrumente-utile/calculator-rata-credite/     Chrome
     Maximize Browser Window
     Sleep  3s
-    Click Element   ${AcceptRaiff}
-    Sleep   1s
+    # Click Element   ${AcceptRaiff}
+    # Sleep   1s
     Click Element   //*[@id="product"]//*[@label="Imobiliar Casa Ta"]
     Sleep   1s
     Click Element   ${InputAmount} 
@@ -231,8 +231,8 @@ Raiffeisen Second
     Open Browser    https://www.raiffeisen.ro/persoane-fizice/instrumente-utile/calculator-rata-credite/     Chrome
     Maximize Browser Window
     Sleep  3s
-    Click Element   ${AcceptRaiff}
-    Sleep   1s
+    # Click Element   ${AcceptRaiff}
+    # Sleep   1s
 
     Click Element   //*[@id="product"]//*[@label="Imobiliar Casa Ta"]
     Sleep   1s
@@ -361,8 +361,8 @@ Raiffeisen Last
     Open Browser   https://www.raiffeisen.ro/persoane-fizice/instrumente-utile/calculator-rata-credite/     Chrome
     Maximize Browser Window
     Sleep  3s
-    Click Element   ${AcceptRaiff}
-    Sleep   1s
+    # Click Element   ${AcceptRaiff}
+    # Sleep   1s
 
     Click Element   //*[@id="product"]//*[@label="Imobiliar Casa Ta"]
     Sleep   1s
