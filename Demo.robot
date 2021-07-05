@@ -85,6 +85,7 @@ ING Extract Data for Ipotecar
     Enter Value For First
     Click Element         ${Calculeaza}
     ING Enter Value for Ipotecar
+    Sleep   3s
     Close Browser
 
 ING Extract Data for Noua Casa
@@ -98,6 +99,7 @@ ING Extract Data for Noua Casa
     Sleep   1s
     Click element   ${ClearInput}
     ING Enter Value for Prima Casa
+    Sleep   3s
     Close Browser
 
 Raiffeisen First
@@ -112,6 +114,7 @@ Raiffeisen First
     Click Element   ${InputAmount} 
     Enter Value for First
     Raiffeisen Enter Value for Ipotecar
+    Sleep   3s
 
     Click Element   //*[@id="product"]//*[@label="Imobiliar Prima Casa"]
     Sleep   1s
@@ -119,6 +122,7 @@ Raiffeisen First
     Enter Value for First
     Sleep   1s
     Raiffeisen Enter Value for Prima Casa
+    Sleep   3s
     Close Browser
 
 BRD First
@@ -135,6 +139,7 @@ BRD First
     Press Keys      //*[@name="valoare_credit"]     390000
     Sleep   2s
     BRD Enter Value
+    Sleep   3s
     Close Browser
 
 BCR First
@@ -182,6 +187,7 @@ CEC First
     Click element   //*[@id="calculator-calculate-btn"]
     Wait Until Element Is Visible   //*[@id="loanVarIterest"]   10s
     CEC Enter Value
+    Sleep   3s
     Close Browser
 
 CEC First PrimaCasa
@@ -196,6 +202,7 @@ CEC First PrimaCasa
     Click element   //*[@id="calculator-calculate-btn"]
     Wait Until Element Is Visible   //*[@id="loanVarIterest"]   10s
     CEC Enter Value for PrimaCasa
+    Sleep   3s
     Close Browser
 
 Append Values in Excel for First
