@@ -63,7 +63,7 @@ Extract IRCC from BNR
 
 Extract IMO from Imobiliare
     Open Browser    https://www.imobiliare.ro/indicele-imobiliare-ro/bucuresti    Chrome
-    Click element   //*[@class="row butoane-actiune vizibil-informare"]//*[@class="btn-actiune btn-actiune--principal"]
+    # Click element   //*[@class="row butoane-actiune vizibil-informare"]//*[@class="btn-actiune btn-actiune--principal"]
     ${IMO}=         Get Text    //div[@class="col-lg-9 col-md-8 col-sm-8 col-xs-12"]//span[@class="pret_unitar"]
     ${IMO}=         Fetch From Left     ${IMO}   €/mp
     ${IMO}=         Convert to number   ${IMO}
