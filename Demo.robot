@@ -16,7 +16,14 @@ Library     indici.py
 Library     inspect.py
 
 ***Variables***
-
+${DobandaPA}        3.85
+${DAE_PA}           4.3
+${PrimaRata}        1832
+${RambursTotal}     687644
+${PC_DobandaPA}     3.24
+${PC_DAE_PA}        3.47
+${PC_PrimaRata}     1697
+${PC_RambursTotal}  622007
 ${DobandaING}       //*[@id="v_intrest"]
 ${DAE}              //*[@id="v_dae"]
 ${RataLunara}       //*[@id="v_rata_luna_fa"]
@@ -102,28 +109,28 @@ ING Extract Data for Noua Casa
     Sleep   3s
     Close Browser
 
-Raiffeisen First
+# Raiffeisen First
     
-    Open Browser    https://www.raiffeisen.ro/persoane-fizice/instrumente-utile/calculator-rata-credite/     Chrome
-    Maximize Browser Window
-    Sleep  3s
-    # Click Element   ${AcceptRaiff}
-    # Sleep   1s
-    Click Element   //*[@id="product"]//*[@label="Imobiliar Casa Ta"]
-    Sleep   1s
-    Click Element   ${InputAmount} 
-    Enter Value for First
-    Raiffeisen Enter Value for Ipotecar
-    Sleep   3s
+#     Open Browser   https://www.raiffeisen.ro/persoane-fizice/instrumente-utile/calculator-rata-credite/     Chrome
+#     Maximize Browser Window
+#     Sleep  3s
+#     # Click Element   ${AcceptRaiff}
+#     # Sleep   1s
+#     Click Element   //*[@id="product"]//*[@label="Imobiliar Casa Ta"]
+#     Sleep   1s
+#     Click Element   ${InputAmount} 
+#     Enter Value for First
+#     Raiffeisen Enter Value for Ipotecar
+#     Sleep   3s
 
-    Click Element   //*[@id="product"]//*[@label="Imobiliar Prima Casa"]
-    Sleep   1s
-    Click Element   ${InputAmount} 
-    Enter Value for First
-    Sleep   1s
-    Raiffeisen Enter Value for Prima Casa
-    Sleep   3s
-    Close Browser
+    # Click Element   //*[@id="product"]//*[@label="Imobiliar Prima Casa"]
+    # Sleep   1s
+    # Click Element   ${InputAmount} 
+    # Enter Value for First
+    # Sleep   1s
+    # Raiffeisen Enter Value for Prima Casa
+    # Sleep   3s
+    # Close Browser
 
 BRD First
 
@@ -207,10 +214,28 @@ CEC First PrimaCasa
 
 Append Values in Excel for First
 
+    Raiff Convert
     Add value for first      ${File}\\IndiciFinanciari.xlsx     ${DobandaPA_ING}    ${DAE_PA_ING}     ${PrimaRata_ING}     ${RambursTotal_ING}    ${PC_DobandaPA_ING}    ${PC_DAE_PA_ING}     ${PC_PrimaRata_ING}     ${PC_RambursTotal_ING}      ${DobandaPA}    ${DAE_PA}     ${PrimaRata}     ${RambursTotal}    ${PC_DobandaPA}    ${PC_DAE_PA}     ${PC_PrimaRata}     ${PC_RambursTotal}    ${Dobanda_BRD}   ${DAE_BRD}      ${PrimaRata_BRD}    ${Total_BRD}    ${Dobanda_BCR}      ${DAE_BCR}      ${Rata_BCR}     ${Total_BCR}    ${DobandaPrima_BCR}      ${DAEPrima_BCR}      ${RataPrima_BCR}     ${TotalPrima_BCR}      ${Dobanda_CEC}    ${DAE_CEC}    ${Rata_CEC}     ${Total_CEC}    ${DobandaPrima_CEC}   ${DAEPrima_CEC}   ${RataPrima_CEC}   ${TotalPrima_CEC} 
     Close Browser
 
 ***Keywords***
+Raiff Convert
+    ${DobandaPA}=   Convert to number        ${DobandaPA}
+    Set Global Variable     ${DobandaPA}        ${DobandaPA}
+    ${DAE_PA}=   Convert to number           ${DAE_PA}
+    Set Global Variable      ${DAE_PA}       ${DAE_PA}
+    ${PrimaRata}=   Convert to number        ${PrimaRata}
+    Set Global Variable     ${PrimaRata}        ${PrimaRata}
+    ${RambursTotal}=   Convert to number     ${RambursTotal}
+    Set Global Variable     ${RambursTotal}     ${RambursTotal}
+    ${PC_DobandaPA}=   Convert to number     ${PC_DobandaPA}
+    Set Global Variable      ${PC_DobandaPA}     ${PC_DobandaPA}
+    ${PC_DAE_PA}=   Convert to number         ${PC_DAE_PA}
+    Set Global Variable     ${PC_DAE_PA}        ${PC_DAE_PA}
+    ${PC_PrimaRata}=   Convert to number     ${PC_PrimaRata}
+    Set Global Variable     ${PC_PrimaRata}     ${PC_PrimaRata}
+    ${PC_RambursTotal}=   Convert to number     ${PC_RambursTotal}
+    Set Global Variable      ${PC_RambursTotal}      ${PC_RambursTotal}
 
 Raiffeisen Enter Value for Ipotecar
 
